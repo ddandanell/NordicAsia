@@ -1,0 +1,38 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "EvrgbDQ5bkm1MomnhFSOg"
+uri = "file://attached_assets/stock_images/surabaya-area.jpg"
+type = "image"
+title = "Surabaya Indonesia city modern urban skyline"
+
+[[outputs]]
+id = "BKBObxQ6WzTi_dqP7nnlm"
+uri = "file://attached_assets/stock_images/jakarta-area.jpg"
+type = "image"
+title = "Jakarta Indonesia skyline modern city buildings sunset"
+
+[[outputs]]
+id = "PXqjkz7lPhayyJaJWmT7s"
+uri = "file://attached_assets/stock_images/bali-area.jpg"
+type = "image"
+title = "Bali Indonesia rice terraces tropical lush green landscape aerial view"
+
+[[outputs]]
+id = "3HuglGvbYxfBvh4hPhkM4"
+uri = "file://attached_assets/stock_images/bandung-area.jpg"
+type = "image"
+title = "Bandung Indonesia mountains tea plantation scenic landscape"
+
+[[outputs]]
+id = "uIlkOY4nfFOJ0EJHkNvob"
+uri = "file://attached_assets/stock_images/hero-community.jpg"
+type = "image"
+title = "modern business conference casual professional setting warm lighting people connecting"
+
+[[outputs]]
+id = "WB3ZHCUwyj_XZ-BCI-RwC"
+uri = "file://attached_assets/stock_images/coworking-tropical.jpg"
+type = "image"
+title = "tropical coworking space Bali Indonesia professionals working laptop palm trees"

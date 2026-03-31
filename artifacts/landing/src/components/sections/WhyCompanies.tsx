@@ -1,82 +1,95 @@
 import { motion } from "framer-motion";
-import { Eye, Magnet, Building, BriefcaseBusiness } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
 
-const companyBenefits = [
-  {
-    title: "Regional Visibility",
-    description: "Showcase your brand to a highly targeted audience of professionals and partners.",
-    icon: Eye,
-    id: "visibility"
-  },
-  {
-    title: "Quality Leads",
-    description: "Find potential clients or distributors who are actively looking for Nordic quality or Asian scale.",
-    icon: Magnet,
-    id: "leads"
-  },
-  {
-    title: "Local Presence",
-    description: "Establish trust before you even open an office by being active in the local community.",
-    icon: Building,
-    id: "presence"
-  },
-  {
-    title: "Find Talent",
-    description: "Hire individuals who understand both cultures and can bridge the gap in your team.",
-    icon: BriefcaseBusiness,
-    id: "talent"
-  }
+const COMPANIES = [
+  { name: "Ericsson", country: "Sweden" },
+  { name: "Maersk", country: "Denmark" },
+  { name: "Equinor", country: "Norway" },
+  { name: "Nokia", country: "Finland" },
+  { name: "H&M Group", country: "Sweden" },
+  { name: "Novo Nordisk", country: "Denmark" },
+  { name: "Yara International", country: "Norway" },
+  { name: "Wärtsilä", country: "Finland" },
 ];
+
+const stagger = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.06 } },
+};
+
+const itemVariant = {
+  hidden: { opacity: 0, scale: 0.9 },
+  show: { opacity: 1, scale: 1, transition: { duration: 0.35, ease: "easeOut" } },
+};
 
 export function WhyCompanies() {
   return (
-    <section className="py-24 bg-[#f8f7f5]" data-testid="section-companies">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="flex flex-col md:flex-row gap-12 items-center">
-          <div className="md:w-1/2">
+    <section
+      className="py-20 md:py-28 px-4 md:px-6 bg-[#f8f7f5]"
+      data-testid="section-company-trust"
+    >
+      <div className="container mx-auto max-w-5xl text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.5 }}
+          className="mb-12"
+        >
+          <span className="inline-block text-xs font-semibold text-primary uppercase tracking-widest mb-3">
+            Trusted network
+          </span>
+          <h2
+            className="text-3xl md:text-4xl font-bold text-foreground mb-4"
+            data-testid="heading-company-trust"
+          >
+            Connected to Nordic business leaders
+          </h2>
+          <p className="text-sm md:text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            Many of the biggest companies from each Nordic country are part of or
+            connected to this ecosystem. Our members include professionals,
+            founders, and people working with some of the most recognized Nordic
+            companies active in Indonesia.
+          </p>
+        </motion.div>
+
+        <motion.div
+          className="grid grid-cols-2 sm:grid-cols-4 gap-3 md:gap-4 mb-10"
+          variants={stagger}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-40px" }}
+          data-testid="company-grid"
+        >
+          {COMPANIES.map((c) => (
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              key={c.name}
+              variants={itemVariant}
+              className="group flex flex-col items-center justify-center gap-2 p-6 md:p-8 rounded-2xl border border-border/60 bg-card hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
+              data-testid={`company-${c.name.toLowerCase().replace(/\s+/g, "-")}`}
             >
-              <h2 className="text-3xl md:text-4xl font-semibold mb-6 tracking-tight" data-testid="heading-companies">Why companies join</h2>
-              <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                Entering a new market is expensive and risky. We help companies reduce that risk by plugging them directly into a network of people who already know the landscape.
-              </p>
-              <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                Whether you are a Swedish tech firm looking for Indonesian developers, or an Asian manufacturer wanting to sell in Norway, this is your launchpad.
+              <div className="h-10 w-10 rounded-xl bg-primary/5 flex items-center justify-center mb-1">
+                <span className="text-lg font-bold text-primary/60 group-hover:text-primary transition-colors">
+                  {c.name.charAt(0)}
+                </span>
+              </div>
+              <p className="text-sm font-semibold text-foreground">{c.name}</p>
+              <p className="text-[10px] text-muted-foreground uppercase tracking-wider">
+                {c.country}
               </p>
             </motion.div>
-          </div>
-          
-          <div className="md:w-1/2 w-full">
-            <div className="grid sm:grid-cols-2 gap-4">
-              {companyBenefits.map((benefit, index) => (
-                <motion.div
-                  key={benefit.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                >
-                  <Card className="h-full border-none shadow-sm rounded-xl" data-testid={`card-company-${benefit.id}`}>
-                    <CardContent className="p-6">
-                      <div className="mb-4 text-primary">
-                        <benefit.icon className="h-6 w-6" />
-                      </div>
-                      <h4 className="font-medium mb-2">{benefit.title}</h4>
-                      <p className="text-sm text-muted-foreground leading-relaxed">
-                        {benefit.description}
-                      </p>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </div>
+          ))}
+        </motion.div>
+
+        <motion.p
+          className="text-xs text-muted-foreground max-w-lg mx-auto leading-relaxed"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4, delay: 0.3 }}
+        >
+          Company names shown to illustrate the level and reach of the network.
+          Logos are placeholders — we do not claim endorsement or partnership.
+        </motion.p>
       </div>
     </section>
   );

@@ -1,0 +1,107 @@
+Build a strong video and testimonial section that explains the value of the network
+
+Create a premium homepage section focused on video storytelling and testimonials that explains the real value of the Nordic community and business network in Indonesia.
+
+The goal of this section is to make the platform feel alive, trusted, and valuable by showing real people talking about what they got out of it.
+
+Build a section with a featured introduction video and supporting testimonials.
+
+Main idea:
+There should be a strong introduction video where Jakob or another representative explains what the community is, what people get from it, and why it matters. The tone should feel real, personal, and trustworthy, not corporate.
+
+Video content concept:
+The video should introduce:
+	•	What this network is
+	•	Why it was created
+	•	What kind of people are in it
+	•	What members get out of it
+	•	Why companies use it
+	•	Why private people also benefit from it
+
+Also include short testimonial clips or cards from different people:
+	•	One younger member
+	•	One older member
+	•	One company representative
+	•	Optionally one founder or remote worker
+
+Each testimonial should explain in a simple way:
+	•	Why they joined
+	•	What they have gotten from it
+	•	Why it has been useful
+	•	Why they would recommend it
+
+Build this section with the following structure:
+	1.	Video intro block
+A large featured video area with:
+
+	•	Strong headline such as “See What Members Get From the Network”
+	•	Short support text
+	•	Large video thumbnail with play button
+	•	Optional short bullet highlights next to the video:
+	•	Better contacts
+	•	More opportunities
+	•	Trusted Nordic network
+	•	Events across Indonesia
+	•	Business and community in one place
+
+	2.	Member stories section
+Below the video, create testimonial cards for different member types:
+
+	•	Young professional
+	•	Senior professional or long-term member
+	•	Company representative
+
+Each card should include:
+	•	Profile image
+	•	Name
+	•	Role
+	•	Short quote
+	•	One sentence explaining the value they got
+
+Example themes:
+	•	“I met people here much faster than I would have on my own.”
+	•	“This gave me both business contacts and a social circle.”
+	•	“For our company, this creates a stronger channel into the Nordic community.”
+
+	3.	Why companies use it
+Add a sub-section explaining why companies support and use the network:
+
+	•	It gives them access to a real and active Nordic channel
+	•	It strengthens their visibility and relationships
+	•	It helps them connect with both companies and individuals
+	•	It supports stronger representation and local relevance in Indonesia
+
+	4.	Why private members use it
+Add a matching sub-section explaining why individuals join:
+
+	•	To meet like-minded people
+	•	To find useful contacts
+	•	To join events
+	•	To ask questions and get help
+	•	To feel part of a trusted group while living or working in Indonesia
+
+	5.	Final CTA below the video section
+Add a strong CTA:
+
+	•	Join the Community
+	•	Explore Membership
+	•	See Upcoming Events
+
+Design requirements:
+	•	Mobile first
+	•	Very visual and clean
+	•	Premium and warm
+	•	Scandinavian styling
+	•	Video section must feel trustworthy and polished
+	•	Testimonial cards must be easy to read on small screens
+	•	Strong typography and spacing
+	•	Build with reusable components
+	•	Use realistic placeholder images and quotes
+	•	The section must feel like it increases trust and conversion
+
+Important:
+The copy must be extremely easy to understand.
+Avoid jargon.
+Make it clear what people get, why it matters, and why this network is valuable for both business and private life.
+
+If you want, I can also turn these two into a more technical version for React + Tailwind + component structure.

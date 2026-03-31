@@ -1,13 +1,11 @@
-import { motion } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Hero } from "@/components/sections/Hero";
+import { AreaCoverage } from "@/components/sections/AreaCoverage";
 import { WhatItIs } from "@/components/sections/WhatItIs";
-import { WhoIsHere } from "@/components/sections/WhoIsHere";
 import { WhyJoin } from "@/components/sections/WhyJoin";
-import { HowItWorks } from "@/components/sections/HowItWorks";
-import { Pricing } from "@/components/sections/Pricing";
 import { WhyCompanies } from "@/components/sections/WhyCompanies";
+import { Pricing } from "@/components/sections/Pricing";
 import { FinalCTA } from "@/components/sections/FinalCTA";
 
 export default function LandingPage() {
@@ -16,12 +14,11 @@ export default function LandingPage() {
       <Navbar />
       <main className="flex-1">
         <Hero />
+        <AreaCoverage />
         <WhatItIs />
-        <WhoIsHere />
         <WhyJoin />
-        <HowItWorks />
-        <Pricing />
         <WhyCompanies />
+        <Pricing />
         <FinalCTA />
       </main>
       <Footer />
