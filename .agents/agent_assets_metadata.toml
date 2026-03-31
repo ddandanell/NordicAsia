@@ -1,5 +1,34 @@
 uploads = []
-generated = []
+
+[[generated]]
+id = "qBgtNCzKoUpFa5tEbio-m"
+uri = "file://artifacts/landing/public/images/chair-denmark.png"
+type = "image"
+title = "denmark chair"
+
+[[generated]]
+id = "8GPTjkU_JUEiEwCd4E3Pm"
+uri = "file://artifacts/landing/public/images/chair-norway.png"
+type = "image"
+title = "norway chair"
+
+[[generated]]
+id = "mf2w2EeRo5Q1awVvajfc0"
+uri = "file://artifacts/landing/public/images/chair-sweden.png"
+type = "image"
+title = "sweden chair"
+
+[[generated]]
+id = "DBC9nl_OINv7VxP1AUQRn"
+uri = "file://artifacts/landing/public/images/chair-finland.png"
+type = "image"
+title = "finland chair"
+
+[[generated]]
+id = "cnRygNPby9oq5PM8Qiq-O"
+uri = "file://artifacts/landing/public/images/chair-iceland.png"
+type = "image"
+title = "iceland chair"
 
 [[outputs]]
 id = "EvrgbDQ5bkm1MomnhFSOg"
