@@ -16,6 +16,24 @@ pnpm workspace monorepo using TypeScript. Each package manages its own dependenc
 - **API codegen**: Orval (from OpenAPI spec)
 - **Build**: esbuild (CJS bundle)
 
+## Artifacts
+
+### `artifacts/landing` (`@workspace/landing`)
+
+React + Vite frontend-only landing site for NordicAsia Network. No backend calls — all content is hardcoded.
+
+- **`/`** — Main landing page with 8 sections: Hero, What It Is, Who Is Here, Why Join, How It Works, Pricing, Why Companies, Final CTA
+- **`/what-you-get`** — Explanation page with tier cards (Visitor / Member / Company), FAQ accordion, benefits grid, and a sticky "Continue to Sign Up" CTA
+
+Key files:
+- `src/App.tsx` — Wouter router with both routes
+- `src/index.css` — Scandinavian-inspired theme (Inter font, Nordic teal primary)
+- `src/pages/LandingPage.tsx` — Assembles all section components
+- `src/pages/WhatYouGet.tsx` — Standalone explanation/FAQ page
+- `src/components/Navbar.tsx` — Sticky nav, context-aware (home vs inner pages)
+- `src/components/Footer.tsx` — Footer with links
+- `src/components/sections/` — Individual section components
+
 ## Structure
 
 ```text
