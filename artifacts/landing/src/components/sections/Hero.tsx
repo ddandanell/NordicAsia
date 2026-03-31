@@ -112,7 +112,7 @@ export function Hero() {
             { value: "5", label: "Nordic countries" },
             { value: "500+", label: "Members" },
             { value: "12+", label: "Monthly events" },
-            { value: "5", label: "Cities in Indonesia" },
+            { value: "6", label: "Cities in Indonesia" },
           ].map(({ value, label }) => (
             <div key={label} className="text-center">
               <p className="text-lg md:text-xl font-bold text-white">{value}</p>

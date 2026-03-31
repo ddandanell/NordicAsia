@@ -32,6 +32,12 @@ const AREAS = [
     members: 18,
     desc: "Culture, education, and heritage. A growing spot for Nordic creatives, researchers, and those drawn to traditional Java.",
   },
+  {
+    name: "Lombok",
+    image: "/images/lombok.jpg",
+    members: 14,
+    desc: "A quieter alternative to Bali. Attracting Nordic entrepreneurs, divers, and families looking for a slower pace with strong community ties.",
+  },
 ];
 
 const stagger = {
@@ -83,13 +89,11 @@ export function AreaCoverage() {
           viewport={{ once: true, margin: "-40px" }}
           data-testid="area-grid"
         >
-          {AREAS.map((area, i) => (
+          {AREAS.map((area) => (
             <motion.div
               key={area.name}
               variants={cardVariant}
-              className={`group relative overflow-hidden rounded-2xl cursor-default ${
-                i < 2 ? "sm:col-span-1 lg:col-span-1" : ""
-              } ${i === 0 ? "lg:row-span-2 lg:min-h-[420px]" : "min-h-[220px]"}`}
+              className="group relative overflow-hidden rounded-2xl cursor-default min-h-[220px]"
               data-testid={`area-card-${area.name.toLowerCase()}`}
             >
               <div
