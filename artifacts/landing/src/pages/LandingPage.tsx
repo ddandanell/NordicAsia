@@ -8,6 +8,8 @@ import { VideoShowcase } from "@/components/sections/VideoShowcase";
 import { MemberStories } from "@/components/sections/MemberStories";
 import { WhyJoin } from "@/components/sections/WhyJoin";
 import { CountryChairs } from "@/components/sections/CountryChairs";
+import { UpcomingEvents } from "@/components/sections/UpcomingEvents";
+import { CommunityGroups } from "@/components/sections/CommunityGroups";
 import { WhyCompanies } from "@/components/sections/WhyCompanies";
 import { Pricing } from "@/components/sections/Pricing";
 import { FinalCTA } from "@/components/sections/FinalCTA";
@@ -24,6 +26,8 @@ export default function LandingPage() {
         <VideoShowcase />
         <MemberStories />
         <WhyJoin />
+        <UpcomingEvents />
+        <CommunityGroups />
         <CountryChairs />
         <WhyCompanies />
         <Pricing />

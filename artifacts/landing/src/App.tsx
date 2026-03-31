@@ -10,20 +10,24 @@ import Login from "@/pages/Login";
 import HowItWorks from "@/pages/HowItWorks";
 import Welcome from "@/pages/Welcome";
 import { UserProvider } from "@/context/UserContext";
+import { ScrollToTop } from "@/components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
 function Router() {
   return (
-    <Switch>
-      <Route path="/" component={LandingPage} />
-      <Route path="/what-you-get" component={WhatYouGet} />
-      <Route path="/sign-up" component={SignUp} />
-      <Route path="/login" component={Login} />
-      <Route path="/how-it-works" component={HowItWorks} />
-      <Route path="/welcome" component={Welcome} />
-      <Route component={NotFound} />
-    </Switch>
+    <>
+      <ScrollToTop />
+      <Switch>
+        <Route path="/" component={LandingPage} />
+        <Route path="/what-you-get" component={WhatYouGet} />
+        <Route path="/sign-up" component={SignUp} />
+        <Route path="/login" component={Login} />
+        <Route path="/how-it-works" component={HowItWorks} />
+        <Route path="/welcome" component={Welcome} />
+        <Route component={NotFound} />
+      </Switch>
+    </>
   );
 }
 
