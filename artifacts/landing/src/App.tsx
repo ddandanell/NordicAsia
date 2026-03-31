@@ -6,6 +6,7 @@ import NotFound from "@/pages/not-found";
 import LandingPage from "@/pages/LandingPage";
 import WhatYouGet from "@/pages/WhatYouGet";
 import SignUp from "@/pages/SignUp";
+import Login from "@/pages/Login";
 
 const queryClient = new QueryClient();
 
@@ -15,6 +16,7 @@ function Router() {
       <Route path="/" component={LandingPage} />
       <Route path="/what-you-get" component={WhatYouGet} />
       <Route path="/sign-up" component={SignUp} />
+      <Route path="/login" component={Login} />
       <Route component={NotFound} />
     </Switch>
   );

@@ -28,7 +28,7 @@ export function Navbar() {
         </nav>
 
         <div className="flex items-center gap-4">
-          <a href="#pricing" className="hidden sm:inline-flex text-sm font-medium text-foreground hover:text-primary transition-colors" data-testid="link-nav-login">Sign In</a>
+          <Link href="/login" className="hidden sm:inline-flex text-sm font-medium text-foreground hover:text-primary transition-colors" data-testid="link-nav-login">Sign In</Link>
           <Button asChild size="sm" className="rounded-full shadow-xs" data-testid="btn-nav-join">
             <a href="/sign-up">Join the Network</a>
           </Button>
