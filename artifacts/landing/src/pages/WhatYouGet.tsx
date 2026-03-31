@@ -325,9 +325,10 @@ export default function WhatYouGet() {
         <Button
           size="lg"
           className="rounded-full w-full sm:w-auto font-semibold shadow"
+          asChild
           data-testid="btn-cta-continue"
         >
-          Continue to Sign Up
+          <a href="/sign-up">Continue to Sign Up</a>
         </Button>
       </div>
     </div>

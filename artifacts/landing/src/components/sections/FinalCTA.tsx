@@ -30,7 +30,7 @@ export function FinalCTA() {
             asChild
             data-testid="btn-cta-join"
           >
-            <a href="#pricing">Join the Community</a>
+            <a href="/sign-up">Join the Community</a>
           </Button>
         </motion.div>
       </div>

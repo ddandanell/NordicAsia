@@ -30,7 +30,7 @@ export function Navbar() {
         <div className="flex items-center gap-4">
           <a href="#pricing" className="hidden sm:inline-flex text-sm font-medium text-foreground hover:text-primary transition-colors" data-testid="link-nav-login">Sign In</a>
           <Button asChild size="sm" className="rounded-full shadow-xs" data-testid="btn-nav-join">
-            <a href="#pricing">Join the Network</a>
+            <a href="/sign-up">Join the Network</a>
           </Button>
         </div>
       </div>

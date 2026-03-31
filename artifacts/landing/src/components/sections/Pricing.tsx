@@ -45,7 +45,7 @@ export function Pricing() {
                 </ul>
               </CardContent>
               <CardFooter className="p-8 pt-0">
-                <Button variant="outline" className="w-full rounded-full" data-testid="btn-pricing-free">Create Free Account</Button>
+                <Button variant="outline" className="w-full rounded-full" asChild data-testid="btn-pricing-free"><a href="/sign-up">Create Free Account</a></Button>
               </CardFooter>
             </Card>
           </motion.div>
@@ -89,7 +89,7 @@ export function Pricing() {
                 </ul>
               </CardContent>
               <CardFooter className="p-8 pt-0">
-                <Button className="w-full rounded-full shadow-sm" data-testid="btn-pricing-member">Become a Member</Button>
+                <Button className="w-full rounded-full shadow-sm" asChild data-testid="btn-pricing-member"><a href="/sign-up">Become a Member</a></Button>
               </CardFooter>
             </Card>
           </motion.div>
