@@ -44,7 +44,7 @@ export function Hero() {
           transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
         >
           <Button size="lg" className="rounded-full text-base h-12 px-8 shadow-md" asChild data-testid="btn-hero-join">
-            <a href="/sign-up">Join the Community</a>
+            <a href="/what-you-get">Join the Community</a>
           </Button>
           <Button size="lg" variant="outline" className="rounded-full text-base h-12 px-8 bg-white" asChild data-testid="btn-hero-how">
             <a href="/how-it-works">How It Works</a>

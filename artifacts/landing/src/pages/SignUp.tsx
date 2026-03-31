@@ -6,6 +6,7 @@ import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Compass, ArrowLeft, Check, Eye, EyeOff, Zap, Lock } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useUser } from "@/context/UserContext";
 
 type FormData = {
   fullName: string;
@@ -134,9 +135,9 @@ export default function SignUp() {
   const [formData, setFormData] = useState<FormData>(initialFormData);
   const [stepIndex, setStepIndex] = useState(0);
   const [error, setError] = useState<string | null>(null);
-  const [submitted, setSubmitted] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [, setLocation] = useLocation();
+  const { setUser } = useUser();
 
   const activeSteps = useMemo(() => getActiveSteps(formData), [formData]);
   const currentStep = activeSteps[stepIndex];
@@ -155,7 +156,18 @@ export default function SignUp() {
       setStepIndex((i) => i + 1);
       setError(null);
     } else {
-      setSubmitted(true);
+      setUser({
+        status: "pending",
+        name: formData.fullName,
+        email: formData.email,
+        phone: formData.phone,
+        joinType: formData.joinType,
+        companyName: formData.companyName,
+        accessType: formData.accessType,
+        whatsappConsent: formData.whatsappConsent,
+        authMethod: formData.authMethod,
+      });
+      setLocation("/welcome");
     }
   };
 
@@ -723,78 +735,3 @@ function OptionCard({
   );
 }
 
-/* ── Success / Welcome Screen ── */
-
-function SuccessScreen({ formData, onHome }: { formData: FormData; onHome: () => void }) {
-  const firstName = formData.fullName.split(" ")[0];
-
-  return (
-    <div className="min-h-screen bg-background flex flex-col items-center justify-center px-4 py-12" data-testid="section-success">
-      <div className="w-full max-w-md text-center">
-        <div
-          className="mx-auto mb-6 h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center"
-          data-testid="icon-success"
-        >
-          <Check className="h-8 w-8 text-primary" />
-        </div>
-
-        <h1 className="text-3xl font-bold text-foreground mb-2" data-testid="heading-success">
-          Welcome, {firstName}!
-        </h1>
-        <p className="text-muted-foreground leading-relaxed mb-10 text-base" data-testid="text-success-desc">
-          Your application has been received. We review every new member personally, so this takes a little time. Here is what happens next.
-        </p>
-
-        <div className="text-left flex flex-col gap-4 mb-10" data-testid="next-steps">
-          {[
-            {
-              step: "1",
-              title: "We review your profile",
-              desc: "Someone on our team will check your application within 1–3 business days.",
-            },
-            {
-              step: "2",
-              title: "You get a confirmation email",
-              desc: "We will email you at " + formData.email + " with your access details.",
-            },
-            {
-              step: "3",
-              title: formData.whatsappConsent ? "We add you to WhatsApp" : "You can join WhatsApp later",
-              desc: formData.whatsappConsent
-                ? "Once approved, you will be added to the private member group."
-                : "You can opt in to the WhatsApp group from your profile page at any time.",
-            },
-          ].map(({ step, title, desc }) => (
-            <div
-              key={step}
-              className="flex items-start gap-4 p-4 rounded-xl border border-border/60 bg-card"
-              data-testid={`next-step-${step}`}
-            >
-              <div className="h-8 w-8 rounded-full bg-primary/10 text-primary text-sm font-bold flex items-center justify-center shrink-0">
-                {step}
-              </div>
-              <div>
-                <p className="text-sm font-semibold text-foreground">{title}</p>
-                <p className="text-xs text-muted-foreground mt-0.5 leading-relaxed">{desc}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div className="flex flex-col gap-3">
-          <Button
-            size="lg"
-            className="w-full h-14 rounded-xl text-base font-semibold"
-            onClick={onHome}
-            data-testid="btn-go-home"
-          >
-            Back to home
-          </Button>
-          <Link href="/what-you-get" className="text-sm text-muted-foreground hover:text-primary transition-colors" data-testid="link-what-you-get">
-            Review what you get as a member
-          </Link>
-        </div>
-      </div>
-    </div>
-  );
-}

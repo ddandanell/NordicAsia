@@ -8,6 +8,8 @@ import WhatYouGet from "@/pages/WhatYouGet";
 import SignUp from "@/pages/SignUp";
 import Login from "@/pages/Login";
 import HowItWorks from "@/pages/HowItWorks";
+import Welcome from "@/pages/Welcome";
+import { UserProvider } from "@/context/UserContext";
 
 const queryClient = new QueryClient();
 
@@ -19,6 +21,7 @@ function Router() {
       <Route path="/sign-up" component={SignUp} />
       <Route path="/login" component={Login} />
       <Route path="/how-it-works" component={HowItWorks} />
+      <Route path="/welcome" component={Welcome} />
       <Route component={NotFound} />
     </Switch>
   );
@@ -28,10 +31,12 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
-          <Router />
-        </WouterRouter>
-        <Toaster />
+        <UserProvider>
+          <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
+            <Router />
+          </WouterRouter>
+          <Toaster />
+        </UserProvider>
       </TooltipProvider>
     </QueryClientProvider>
   );

@@ -20,19 +20,27 @@ pnpm workspace monorepo using TypeScript. Each package manages its own dependenc
 
 ### `artifacts/landing` (`@workspace/landing`)
 
-React + Vite frontend-only landing site for NordicAsia Network. No backend calls — all content is hardcoded.
+React + Vite frontend-only landing site for NordicAsia Network. No backend calls — all content is hardcoded. Frontend-only, session state via `sessionStorage`.
 
-- **`/`** — Main landing page with 8 sections: Hero, What It Is, Who Is Here, Why Join, How It Works, Pricing, Why Companies, Final CTA
-- **`/what-you-get`** — Explanation page with tier cards (Visitor / Member / Company), FAQ accordion, benefits grid, and a sticky "Continue to Sign Up" CTA
+**Funnel flow**: `/` → `/what-you-get` → `/sign-up` → `/welcome`
 
-Key files:
-- `src/App.tsx` — Wouter router with both routes
-- `src/index.css` — Scandinavian-inspired theme (Inter font, Nordic teal primary)
-- `src/pages/LandingPage.tsx` — Assembles all section components
-- `src/pages/WhatYouGet.tsx` — Standalone explanation/FAQ page
-- `src/components/Navbar.tsx` — Sticky nav, context-aware (home vs inner pages)
-- `src/components/Footer.tsx` — Footer with links
-- `src/components/sections/` — Individual section components
+**Routes:**
+- **`/`** — Main landing page: Hero, What It Is, Who Is Here, Why Join, How It Works, Pricing, Why Companies, Final CTA
+- **`/what-you-get`** — Tier comparison (Visitor/Member/Company), benefit cards, FAQ accordion, sticky "Continue" CTA
+- **`/sign-up`** — 11–12 step onboarding flow (one question per screen), personal or company path, saves to UserContext on completion
+- **`/login`** — Login page: Email/phone toggle, magic link/password sub-toggle, forgot password, access tier explainer
+- **`/how-it-works`** — 5-step walkthrough (swipeable on mobile, list on desktop), 4 explainer blocks, final CTA
+- **`/welcome`** — Post sign-up screen: status badge, access level, next steps, WhatsApp card, upgrade CTA, quick links
+
+**Key files:**
+- `src/App.tsx` — Wouter router wrapped with `UserProvider`
+- `src/context/UserContext.tsx` — React context for user state (visitor/pending/free/paid/company), persisted to sessionStorage
+- `src/index.css` — Scandinavian-inspired theme (Inter font, Nordic teal `--primary`)
+- `src/pages/` — One file per route: LandingPage, WhatYouGet, SignUp, Login, HowItWorks, Welcome
+- `src/components/Navbar.tsx` — Status-aware: shows user name + status dot when authenticated, Sign In + Join when visitor
+- `src/components/sections/` — Individual landing page sections
+
+**User status states:** `visitor` → `pending` (post sign-up) → `free` | `paid` | `company` (post approval)
 
 ## Structure
 
