@@ -67,7 +67,7 @@ export function VideoShowcase() {
             <video
               ref={videoRef}
               className="w-full aspect-video object-cover"
-              poster="/images/community.jpg"
+              poster="/images/video-poster.png"
               playsInline
               onEnded={() => setPlaying(false)}
               data-testid="video-element"
