@@ -47,7 +47,7 @@ export function Hero() {
             <a href="/sign-up">Join the Community</a>
           </Button>
           <Button size="lg" variant="outline" className="rounded-full text-base h-12 px-8 bg-white" asChild data-testid="btn-hero-how">
-            <a href="#how-it-works">How It Works</a>
+            <a href="/how-it-works">How It Works</a>
           </Button>
         </motion.div>
       </div>

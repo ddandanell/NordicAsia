@@ -7,6 +7,7 @@ import LandingPage from "@/pages/LandingPage";
 import WhatYouGet from "@/pages/WhatYouGet";
 import SignUp from "@/pages/SignUp";
 import Login from "@/pages/Login";
+import HowItWorks from "@/pages/HowItWorks";
 
 const queryClient = new QueryClient();
 
@@ -17,6 +18,7 @@ function Router() {
       <Route path="/what-you-get" component={WhatYouGet} />
       <Route path="/sign-up" component={SignUp} />
       <Route path="/login" component={Login} />
+      <Route path="/how-it-works" component={HowItWorks} />
       <Route component={NotFound} />
     </Switch>
   );
