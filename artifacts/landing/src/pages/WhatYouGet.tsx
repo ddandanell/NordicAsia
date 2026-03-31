@@ -98,12 +98,23 @@ export default function WhatYouGet() {
       <Navbar />
 
       <main className="flex-1 pb-24">
-        {/* Page Header */}
+        {/* Page Header — hero with photo */}
         <section
-          className="bg-background border-b border-border/50 py-10 md:py-16"
+          className="relative overflow-hidden"
           data-testid="section-header"
         >
-          <div className="container mx-auto px-4 md:px-6 max-w-2xl text-center">
+          {/* Photo */}
+          <div className="relative h-64 md:h-80 w-full">
+            <img
+              src="/images/whyjoin.jpg"
+              alt="NordicAsia Network event — Ubud, Bali"
+              className="w-full h-full object-cover object-center"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
+          </div>
+
+          {/* Text anchored to bottom of photo */}
+          <div className="relative -mt-16 md:-mt-24 z-10 container mx-auto px-4 md:px-6 max-w-2xl text-center pb-10 md:pb-14">
             <Badge
               variant="secondary"
               className="mb-4 rounded-full px-4 py-1 text-xs font-medium tracking-wide"
