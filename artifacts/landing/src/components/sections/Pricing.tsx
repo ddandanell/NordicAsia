@@ -44,27 +44,6 @@ const TIERS = [
     href: "/sign-up",
     testid: "card-pricing-member",
   },
-  {
-    id: "company",
-    name: "Company Membership",
-    price: "IDR 5.400.000",
-    period: "/ tahun",
-    tagline: "For businesses that want presence.",
-    highlight: false,
-    features: [
-      "Everything in paid membership",
-      "Featured company profile in the directory",
-      "Add team members to the network",
-      "Sponsored post in monthly newsletter",
-      "Curated introductions to partners and clients",
-      "Visibility at events as a community partner",
-      "Recruitment access — find Nordic talent",
-    ],
-    note: null,
-    cta: "Join as a Company",
-    href: "/sign-up",
-    testid: "card-pricing-company",
-  },
 ];
 
 const stagger = {
@@ -127,7 +106,7 @@ export function Pricing() {
         </motion.div>
 
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-3 gap-5"
+          className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-2xl mx-auto"
           variants={stagger}
           initial="hidden"
           whileInView="show"

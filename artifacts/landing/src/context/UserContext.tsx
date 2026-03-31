@@ -1,17 +1,19 @@
 import { createContext, useContext, useState, useCallback, useEffect } from "react";
 
-export type UserStatus = "visitor" | "pending" | "free" | "paid" | "company";
+export type UserStatus = "visitor" | "pending" | "free" | "paid";
 
 export type UserProfile = {
   status: UserStatus;
   name: string;
   email: string;
   phone: string;
-  joinType: "personal" | "company" | "";
-  companyName: string;
+  country: string;
+  location: string;
   accessType: "free" | "paid" | "";
+  motivation: string[];
+  wantCall: boolean;
+  eventPreference: string;
   whatsappConsent: boolean;
-  authMethod: "magic" | "password" | "";
 };
 
 const DEFAULT_PROFILE: UserProfile = {
@@ -19,11 +21,13 @@ const DEFAULT_PROFILE: UserProfile = {
   name: "",
   email: "",
   phone: "",
-  joinType: "",
-  companyName: "",
+  country: "",
+  location: "",
   accessType: "",
+  motivation: [],
+  wantCall: false,
+  eventPreference: "",
   whatsappConsent: false,
-  authMethod: "",
 };
 
 const STORAGE_KEY = "nordicasia_user";
@@ -32,9 +36,7 @@ function loadFromStorage(): UserProfile {
   try {
     const raw = sessionStorage.getItem(STORAGE_KEY);
     if (raw) return { ...DEFAULT_PROFILE, ...JSON.parse(raw) };
-  } catch {
-    /* ignore */
-  }
+  } catch { /* ignore */ }
   return DEFAULT_PROFILE;
 }
 
@@ -58,26 +60,17 @@ export function UserProvider({ children }: { children: React.ReactNode }) {
   const setUser = useCallback((patch: Partial<UserProfile>) => {
     setUserState((prev) => {
       const next = { ...prev, ...patch };
-      try {
-        sessionStorage.setItem(STORAGE_KEY, JSON.stringify(next));
-      } catch {
-        /* ignore */
-      }
+      try { sessionStorage.setItem(STORAGE_KEY, JSON.stringify(next)); } catch { /* ignore */ }
       return next;
     });
   }, []);
 
   const signOut = useCallback(() => {
-    try {
-      sessionStorage.removeItem(STORAGE_KEY);
-    } catch {
-      /* ignore */
-    }
+    try { sessionStorage.removeItem(STORAGE_KEY); } catch { /* ignore */ }
     setUserState(DEFAULT_PROFILE);
   }, []);
 
   useEffect(() => {
-    // Sync storage in case another tab changes it
     const handler = () => setUserState(loadFromStorage());
     window.addEventListener("storage", handler);
     return () => window.removeEventListener("storage", handler);
@@ -100,8 +93,7 @@ export const STATUS_LABELS: Record<UserStatus, string> = {
   visitor: "Visitor",
   pending: "Pending approval",
   free: "Free member",
-  paid: "Member",
-  company: "Company member",
+  paid: "Paid member",
 };
 
 export const STATUS_COLORS: Record<UserStatus, string> = {
@@ -109,5 +101,4 @@ export const STATUS_COLORS: Record<UserStatus, string> = {
   pending: "bg-amber-100 text-amber-700",
   free: "bg-sky-100 text-sky-700",
   paid: "bg-primary/10 text-primary",
-  company: "bg-violet-100 text-violet-700",
 };

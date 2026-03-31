@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import {
   Compass,
   Clock,
-  Mail,
   MessageCircle,
   Star,
   ArrowRight,
@@ -11,7 +10,6 @@ import {
   User,
   CalendarDays,
   TrendingUp,
-  Building2,
   ChevronRight,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -23,7 +21,7 @@ export default function Welcome() {
   const [, setLocation] = useLocation();
 
   const firstName = user.name ? user.name.split(" ")[0] : "there";
-  const isPaid = user.accessType === "paid" || user.status === "paid" || user.status === "company";
+  const isPaid = user.accessType === "paid" || user.status === "paid";
   const statusLabel = STATUS_LABELS[user.status] ?? "Pending approval";
   const statusColor = STATUS_COLORS[user.status] ?? STATUS_COLORS.pending;
 
@@ -66,10 +64,9 @@ export default function Welcome() {
             >
               {statusLabel}
             </span>
-            {user.joinType === "company" && user.companyName && (
-              <span className="text-xs text-muted-foreground flex items-center gap-1">
-                <Building2 className="h-3 w-3" />
-                {user.companyName}
+            {user.country && (
+              <span className="text-xs text-muted-foreground font-medium px-2.5 py-1 rounded-full bg-muted">
+                {user.country}
               </span>
             )}
           </div>
@@ -101,8 +98,8 @@ export default function Welcome() {
                 Your application is under review
               </p>
               <p className="text-xs text-amber-700 leading-relaxed">
-                We review every application personally to keep the network high-quality. This usually takes 1–3 business days. You will receive an email at{" "}
-                <span className="font-medium">{user.email || "your inbox"}</span> when it is approved.
+                We review every application personally to keep the network high-quality. This usually takes 1–2 business days. We will reach out to you on WhatsApp
+                {user.phone ? <span className="font-medium"> ({user.phone})</span> : ""} when it is approved.
               </p>
             </div>
           </div>
@@ -125,9 +122,7 @@ export default function Welcome() {
             </div>
             <div>
               <p className="text-sm font-bold text-foreground">
-                {isPaid
-                  ? user.joinType === "company" ? "Company membership" : "Paid membership"
-                  : "Free access"}
+                {isPaid ? "Paid membership" : "Free member"}
               </p>
               <p className="text-xs text-muted-foreground">
                 {isPaid
@@ -161,27 +156,27 @@ export default function Welcome() {
           <div className="flex flex-col gap-3">
             {[
               {
-                icon: Mail,
-                iconBg: "bg-primary/10",
-                iconColor: "text-primary",
-                heading: "Check your email",
-                body: `We sent a confirmation to ${user.email || "your address"}. Click the link inside to verify your account.`,
-                testId: "next-step-email",
+                icon: MessageCircle,
+                iconBg: "bg-[#25D366]/10",
+                iconColor: "text-[#25D366]",
+                heading: "We will contact you on WhatsApp",
+                body: `We will review your application and reach out to you on WhatsApp${user.phone ? " at " + user.phone : ""}. This is how we place you in the right group and send your invitation.`,
+                testId: "next-step-whatsapp",
               },
               {
                 icon: User,
                 iconBg: "bg-sky-100",
                 iconColor: "text-sky-600",
-                heading: "Complete your profile",
-                body: "Once approved, you can add a photo, a short bio, and what you are looking for. It takes about two minutes.",
-                testId: "next-step-profile",
+                heading: "We place you in the right country group",
+                body: `You will be connected to the ${user.country || "Nordic"} network and placed with members in your area${user.location ? " — " + user.location : ""}.`,
+                testId: "next-step-country",
               },
               {
                 icon: CalendarDays,
                 iconBg: "bg-amber-100",
                 iconColor: "text-amber-600",
-                heading: "Explore events",
-                body: "After approval you will see upcoming events in your area and online. Some are free, some are for paid members.",
+                heading: "You get invited to your first event — free",
+                body: "Come meet some members. See the network in real life. After that, you decide if you want to stay as Free Member or become a Paid Member.",
                 testId: "next-step-events",
               },
             ].map(({ icon: Icon, iconBg, iconColor, heading, body, testId }, i) => (

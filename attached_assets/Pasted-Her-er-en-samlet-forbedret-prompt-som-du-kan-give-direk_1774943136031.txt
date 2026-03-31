@@ -1,0 +1,184 @@
+Her er en samlet, forbedret prompt, som du kan give direkte til en AI-koder eller AI-designmodel:
+
+Build a completely new mobile-first login and membership entry page for a Nordic community platform in Indonesia. This page is the main entry point into the community and must feel modern, premium, social, easy to understand, and highly conversion-focused. The whole experience must be built around WhatsApp as the main login and communication method. Make it very clear throughout the page that the system is powered by WhatsApp and that WhatsApp is the core way members log in, receive updates, get invited, and stay connected.
+
+Important:
+Remove the separate company membership type. There must now only be two membership types:
+	1.	Free Member
+	2.	Paid Member
+
+Paid Member should still include access to the business-related parts, company-related access, premium networking, and the stronger parts of the community. In other words, company-level value is included inside Paid Member, not as a separate type.
+
+The entire page must be written in very simple, clear English so anyone can understand it immediately. It should feel fresh, direct, and welcoming. The design should feel Scandinavian, premium, clean, and social, not stiff or corporate. Use a strong mobile-first layout, soft cards, clean spacing, beautiful typography, icon sections, and strong CTA buttons.
+
+Core concept of the page:
+Before people log in or join, they must first understand the two paths.
+
+Path 1: Free Member
+This is for people who mainly want to enjoy the community, meet others, be part of something social, get access to WhatsApp community touchpoints, see what is happening, and connect casually. This is for someone who is not mainly focused on business and just wants to be part of the community, meet people, and explore.
+
+Path 2: Paid Member
+This is for people who want deeper access, stronger networking, business updates, invitations to events, premium connections, and access to the more serious side of the network. This is for someone who wants to be fully part of the ecosystem, follow business activity, get better connections, and access the premium value of the network.
+
+The page must clearly help the user choose between these two options.
+
+Main requirements for the new page:
+	1.	Hero / intro section
+Create a strong headline such as:
+“Join the Nordic Community in Indonesia”
+or
+“Meet People, Join the Network, Stay Connected Through WhatsApp”
+
+Add a short explanation that this is a Nordic community for people connected to Denmark, Norway, Sweden, Iceland, and Finland who live in, work in, or spend time in Indonesia.
+
+Make it clear that:
+	•	WhatsApp is the core login and communication layer
+	•	the first event is always free
+	•	you can join, meet members, and then decide later if Paid Member is right for you
+
+Add a visible trust line:
+“Powered by WhatsApp”
+“Login, communication, invites, and reminders all happen through WhatsApp”
+	2.	Membership choice section
+Build a clear selection section where the user first chooses:
+
+Free Member
+or
+Paid Member
+
+Each option should be shown as a large mobile-friendly card.
+
+Free Member card should explain:
+	•	join the community
+	•	meet people
+	•	get access to community updates
+	•	explore what is happening
+	•	connect socially
+	•	light WhatsApp access
+	•	not focused on business or premium events
+
+Paid Member card should explain:
+	•	join the full network
+	•	get invited to business events
+	•	stay updated on business activity
+	•	access stronger connections
+	•	join the premium side of the community
+	•	get access to the more serious networking and business value
+
+Make the wording simple and very clear.
+	3.	Country choice
+After choosing membership type, the user must choose which Nordic country they want to join through.
+
+Show large country cards for:
+	•	Denmark
+	•	Norway
+	•	Sweden
+	•	Iceland
+	•	Finland
+
+Make the cards visual and premium.
+Explain in helper text:
+“Choose the country network you feel most connected to.”
+	4.	Signup / application form
+After choosing membership type and country, show a simple step-by-step mobile-first form.
+
+Ask for:
+	•	Full name
+	•	Phone number
+	•	Area in Indonesia where they live
+	•	Email address if needed
+	•	Do you want us to call you and tell you more?
+	•	Do you want to be invited to an event this month or next month?
+	•	Preferred area: Bali, Jakarta, or other
+	•	Optional short question: What are you looking for in the network?
+
+Make it very simple and friendly.
+The tone should feel human, warm, and low friction.
+	5.	First-event-free explanation
+Add a highlighted section that explains:
+
+“Your first event is free”
+
+Support text:
+“Come meet some of the members first. See how the network feels in real life. After that, you can decide if you want to continue as a Paid Member.”
+
+This must be one of the strongest trust-building elements on the page.
+	6.	WhatsApp-first login and communication
+Make WhatsApp the center of the whole page and flow.
+
+Explain clearly that:
+	•	login happens through WhatsApp
+	•	invitations happen through WhatsApp
+	•	reminders happen through WhatsApp
+	•	community access is connected through WhatsApp
+	•	support and communication happen through WhatsApp
+
+Add a visible label or badge in multiple places:
+“Powered by WhatsApp”
+
+The page should feel like a modern WhatsApp-connected community system.
+	7.	Login section
+Redesign the login experience so it is not a traditional boring login page.
+
+Instead, make it feel like entering a live network.
+
+Possible sections:
+	•	Continue with WhatsApp
+	•	Already a member? Log in with WhatsApp
+	•	New here? Choose your membership and apply
+	•	Powered by WhatsApp
+
+The primary login button should be something like:
+“Continue with WhatsApp”
+	8.	What happens next section
+After the form, explain clearly what happens next:
+
+	•	We receive your information
+	•	We place you in the right country and area
+	•	We invite you to an event
+	•	You meet members
+	•	You decide if you want to stay as Free Member or become Paid Member
+
+Make this very clear and simple.
+	9.	Design direction
+The whole page must:
+
+	•	be mobile first
+	•	feel premium and modern
+	•	feel social and warm
+	•	be extremely easy to understand
+	•	use strong spacing and clear sections
+	•	use icons and cards
+	•	have a fresh Scandinavian feeling
+	•	make WhatsApp feel central to the product
+	•	feel like a real community, not a corporate membership form
+
+	10.	Important logic changes
+Important:
+
+	•	there are only two memberships now: Free Member and Paid Member
+	•	remove company membership as a separate choice
+	•	Paid Member includes access to the stronger business and company-related value
+	•	first event is free
+	•	users choose their country first as part of the onboarding
+	•	users can choose whether they want a call
+	•	users can choose whether they want to be invited to an event this month or next month
+	•	all flows must support Bali, Jakarta, and future areas in Indonesia
+
+	11.	Build output
+Create:
+
+	•	full page layout
+	•	section structure
+	•	complete UX flow
+	•	clear copywriting
+	•	mobile-first components
+	•	visual hierarchy
+	•	CTA button labels
+	•	placeholders for WhatsApp login integration
+
+Do not build payment integration yet.
+Do not build backend yet.
+Only build the frontend and experience design, but make it production-ready and easy to connect later.
+
+Hvis du vil, kan jeg også lave en version 2 af prompten, som er mere teknisk og skrevet direkte til React + Tailwind + Supabase + WhatsApp auth flow.

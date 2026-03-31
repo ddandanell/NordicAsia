@@ -18,7 +18,6 @@ import {
   Check,
   Lock,
   Star,
-  Building2,
   UserCircle,
   Gift,
 } from "lucide-react";
@@ -41,15 +40,6 @@ const paidFeatures = [
   "Monthly digital newsletter with market insights",
 ];
 
-const companyFeatures = [
-  "Everything in the paid membership",
-  "Featured company profile in the directory",
-  "Sponsored post in the monthly newsletter",
-  "Introductions to potential partners and clients",
-  "Visibility at events as a community partner",
-  "Priority access to new members from your sector",
-  "Recruitment access — find Nordic talent in Asia",
-];
 
 const faqItems = [
   {
@@ -161,9 +151,9 @@ export default function WhatYouGet() {
         >
           <div className="container mx-auto px-4 md:px-6 max-w-3xl">
             <h2 className="text-sm font-semibold text-muted-foreground uppercase tracking-widest mb-6 text-center">
-              Three ways to be part of the network
+              Two ways to be part of the network
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {/* Free */}
               <div
                 className="rounded-2xl border border-border/70 bg-card p-5 flex flex-col gap-3"
@@ -220,31 +210,6 @@ export default function WhatYouGet() {
                 </ul>
               </div>
 
-              {/* Company */}
-              <div
-                className="rounded-2xl border border-border/70 bg-card p-5 flex flex-col gap-3"
-                data-testid="card-tier-company"
-              >
-                <div className="flex items-center gap-2">
-                  <div className="h-8 w-8 rounded-full bg-muted flex items-center justify-center">
-                    <Building2 className="h-4 w-4 text-muted-foreground" />
-                  </div>
-                  <span className="font-semibold text-foreground text-sm">Company</span>
-                  <span className="ml-auto text-xs font-semibold text-muted-foreground">IDR 5.400.000/thn</span>
-                </div>
-                <p className="text-xs text-muted-foreground leading-relaxed">
-                  Get your business visible to the right people across both regions.
-                </p>
-                <ul className="flex flex-col gap-1.5 mt-1">
-                  {companyFeatures.slice(0, 5).map((f) => (
-                    <li key={f} className="flex items-start gap-2 text-xs text-foreground">
-                      <Check className="h-3.5 w-3.5 text-primary mt-0.5 shrink-0" />
-                      <span>{f}</span>
-                    </li>
-                  ))}
-                  <li className="text-xs text-muted-foreground pl-5">+ {companyFeatures.length - 5} more benefits</li>
-                </ul>
-              </div>
             </div>
           </div>
         </section>

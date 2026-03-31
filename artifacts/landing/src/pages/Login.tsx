@@ -2,34 +2,28 @@ import { useState } from "react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Separator } from "@/components/ui/separator";
 import {
   Compass,
   ArrowLeft,
-  Zap,
-  Lock,
-  Eye,
-  EyeOff,
-  Mail,
-  Phone,
   Check,
-  CalendarDays,
+  MessageCircle,
+  Mail,
   Users,
-  Building2,
   Star,
+  CalendarDays,
+  Zap,
+  ChevronRight,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-type LoginMethod = "email" | "phone";
-type AuthMethod = "magic" | "password";
-type View = "login" | "forgot" | "magic-sent" | "reset-sent";
+type View = "login" | "whatsapp-sent" | "email-sent";
 
 const ACCESS_TIERS = [
   {
     key: "free",
     label: "Free member",
     icon: Users,
-    desc: "Browse the public directory and read community updates.",
+    desc: "Join the community, meet people, see what is happening.",
     color: "text-muted-foreground",
     bg: "bg-muted/50",
   },
@@ -37,139 +31,85 @@ const ACCESS_TIERS = [
     key: "paid",
     label: "Paid member",
     icon: Star,
-    desc: "Full network access, events, WhatsApp group, and introductions.",
+    desc: "Full access — events, business networking, premium connections, WhatsApp.",
     color: "text-primary",
     bg: "bg-primary/5",
     popular: true,
   },
-  {
-    key: "company",
-    label: "Company member",
-    icon: Building2,
-    desc: "Everything in paid, plus a featured company profile and recruitment access.",
-    color: "text-foreground",
-    bg: "bg-card",
-  },
 ];
 
 export default function Login() {
-  const [loginMethod, setLoginMethod] = useState<LoginMethod>("email");
-  const [authMethod, setAuthMethod] = useState<AuthMethod>("magic");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [password, setPassword] = useState("");
-  const [forgotEmail, setForgotEmail] = useState("");
-  const [showPassword, setShowPassword] = useState(false);
   const [view, setView] = useState<View>("login");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [showEmailFallback, setShowEmailFallback] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [activeTier, setActiveTier] = useState<string>("paid");
+  const [activeTier, setActiveTier] = useState("paid");
 
-  const validate = (): string | null => {
-    if (loginMethod === "email") {
-      if (!email.trim()) return "Please enter your email address.";
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim()))
-        return "That doesn't look like a valid email.";
-      if (authMethod === "password" && password.length < 1)
-        return "Please enter your password.";
-    } else {
-      if (!phone.trim() || phone.trim().length < 6)
-        return "Please enter your phone number.";
-    }
-    return null;
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleWhatsApp = (e: React.FormEvent) => {
     e.preventDefault();
-    const err = validate();
-    if (err) { setError(err); return; }
-    setError(null);
-    if (authMethod === "magic" || loginMethod === "phone") {
-      setView("magic-sent");
-    } else {
-      // Password login — placeholder: show a stub "logged in" state
-      setView("magic-sent");
+    if (!phone.trim() || phone.trim().length < 6) {
+      setError("Please enter your WhatsApp number.");
+      return;
     }
-  };
-
-  const handleForgot = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!forgotEmail.trim()) { setError("Please enter your email address."); return; }
     setError(null);
-    setView("reset-sent");
+    setView("whatsapp-sent");
   };
 
-  if (view === "magic-sent") {
-    const contact = loginMethod === "email" ? email : phone;
-    const isMagic = authMethod === "magic" || loginMethod === "phone";
-    return (
-      <ConfirmationScreen
-        heading={isMagic ? "Check your inbox" : "You're in"}
-        desc={
-          isMagic
-            ? `We sent a ${loginMethod === "phone" ? "code to " + contact : "sign-in link to " + contact + ". Click the link to sign in — no password needed."}`
-            : `Welcome back. You are now signed in.`
-        }
-        onBack={() => setView("login")}
-        testId="view-magic-sent"
-      />
-    );
-  }
+  const handleEmail = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) {
+      setError("Please enter a valid email address.");
+      return;
+    }
+    setError(null);
+    setView("email-sent");
+  };
 
-  if (view === "reset-sent") {
-    return (
-      <ConfirmationScreen
-        heading="Reset link sent"
-        desc={`We sent a password reset link to ${forgotEmail}. Check your inbox and follow the instructions.`}
-        onBack={() => { setView("login"); setForgotEmail(""); }}
-        testId="view-reset-sent"
-      />
-    );
-  }
-
-  if (view === "forgot") {
+  if (view === "whatsapp-sent") {
     return (
       <PageShell>
-        <div className="w-full max-w-sm mx-auto" data-testid="view-forgot">
+        <div className="w-full max-w-sm mx-auto text-center" data-testid="view-whatsapp-sent">
+          <div className="mx-auto mb-5 h-16 w-16 rounded-full bg-[#25D366]/10 flex items-center justify-center">
+            <MessageCircle className="h-8 w-8 text-[#25D366]" />
+          </div>
+          <h2 className="text-2xl font-bold text-foreground mb-2">Check your WhatsApp</h2>
+          <p className="text-sm text-muted-foreground leading-relaxed mb-2">
+            We sent a sign-in message to <span className="font-semibold text-foreground">{phone}</span> on WhatsApp.
+          </p>
+          <p className="text-sm text-muted-foreground leading-relaxed mb-8">
+            Open WhatsApp and tap the link to sign in — no password needed.
+          </p>
           <button
             onClick={() => { setView("login"); setError(null); }}
-            className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors mb-8"
-            data-testid="btn-back-to-login"
+            className="text-sm text-primary hover:opacity-80 transition-opacity underline underline-offset-2"
+            data-testid="btn-back-from-whatsapp"
           >
-            <ArrowLeft className="h-4 w-4" />
-            Back to sign in
+            Use a different number
           </button>
+        </div>
+      </PageShell>
+    );
+  }
 
-          <h1 className="text-2xl font-bold text-foreground mb-1" data-testid="heading-forgot">
-            Forgot your password?
-          </h1>
-          <p className="text-sm text-muted-foreground mb-8 leading-relaxed">
-            Enter your email and we will send you a link to reset it.
+  if (view === "email-sent") {
+    return (
+      <PageShell>
+        <div className="w-full max-w-sm mx-auto text-center" data-testid="view-email-sent">
+          <div className="mx-auto mb-5 h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center">
+            <Mail className="h-8 w-8 text-primary" />
+          </div>
+          <h2 className="text-2xl font-bold text-foreground mb-2">Check your inbox</h2>
+          <p className="text-sm text-muted-foreground leading-relaxed mb-8">
+            We sent a sign-in link to <span className="font-semibold text-foreground">{email}</span>. Click the link to sign in — no password needed.
           </p>
-
-          <form onSubmit={handleForgot} className="flex flex-col gap-4">
-            <Input
-              autoFocus
-              type="email"
-              placeholder="you@example.com"
-              value={forgotEmail}
-              onChange={(e) => { setForgotEmail(e.target.value); setError(null); }}
-              className="h-13 text-base rounded-xl px-4"
-              data-testid="input-forgot-email"
-            />
-            {error && (
-              <p className="text-sm text-red-500" role="alert" data-testid="error-forgot">
-                {error}
-              </p>
-            )}
-            <Button
-              type="submit"
-              size="lg"
-              className="w-full h-13 rounded-xl font-semibold"
-              data-testid="btn-send-reset"
-            >
-              Send reset link
-            </Button>
-          </form>
+          <button
+            onClick={() => { setView("login"); setError(null); }}
+            className="text-sm text-primary hover:opacity-80 transition-opacity underline underline-offset-2"
+            data-testid="btn-back-from-email"
+          >
+            Use a different address
+          </button>
         </div>
       </PageShell>
     );
@@ -179,25 +119,34 @@ export default function Login() {
     <PageShell>
       <div className="w-full max-w-4xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
 
-        {/* ── Left column: Trust + Access tiers ── */}
+        {/* ── Left column: Trust ── */}
         <div className="order-2 lg:order-1 flex flex-col gap-6" data-testid="panel-trust">
           <div>
             <p className="text-xs font-semibold text-primary uppercase tracking-widest mb-3">
-              The NordicAsia Network
+              Nordic Network · Indonesia
             </p>
             <h2 className="text-2xl font-bold text-foreground leading-snug mb-3" data-testid="heading-trust">
-              See what's happening in your network
+              Enter the network. Meet your people.
             </h2>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Sign in to access the community, browse the member directory, join events, and connect with people across the Nordic and Asian business world.
+              The NordicAsia Network connects Scandinavians and Nordic-connected professionals across Indonesia. Login, invitations, and communication all happen through WhatsApp.
             </p>
+          </div>
+
+          {/* WhatsApp badge */}
+          <div className="flex items-center gap-3 rounded-xl border border-[#25D366]/30 bg-[#25D366]/5 px-4 py-3">
+            <MessageCircle className="h-5 w-5 text-[#25D366] shrink-0" />
+            <div>
+              <p className="text-xs font-bold text-foreground">Powered by WhatsApp</p>
+              <p className="text-xs text-muted-foreground">Login, invites, reminders, and community updates — all through WhatsApp.</p>
+            </div>
           </div>
 
           <div className="flex flex-col gap-2" data-testid="list-trust-points">
             {[
-              { icon: CalendarDays, text: "Join events and connect with others" },
-              { icon: Users, text: "Browse the private member directory" },
-              { icon: Zap, text: "Get introductions from our team" },
+              { icon: CalendarDays, text: "Get invited to events by WhatsApp" },
+              { icon: Zap, text: "One-tap sign in — no password" },
+              { icon: Users, text: "Connect with the Nordic community in Indonesia" },
             ].map(({ icon: Icon, text }) => (
               <div key={text} className="flex items-center gap-3 text-sm text-foreground">
                 <div className="h-7 w-7 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
@@ -208,12 +157,9 @@ export default function Login() {
             ))}
           </div>
 
-          <Separator className="opacity-50" />
-
-          {/* Access tier cards */}
-          <div data-testid="section-access-tiers">
+          <div className="border-t border-border/50 pt-5" data-testid="section-access-tiers">
             <p className="text-xs font-semibold text-muted-foreground uppercase tracking-widest mb-3">
-              Access depends on your membership level
+              Two ways to be a member
             </p>
             <div className="flex flex-col gap-2">
               {ACCESS_TIERS.map((tier) => {
@@ -265,192 +211,112 @@ export default function Login() {
           <div className="bg-card border border-border/60 rounded-2xl p-6 md:p-8 shadow-sm">
 
             <h1 className="text-xl font-bold text-foreground mb-1" data-testid="heading-login">
-              Sign in to your account
+              Already a member?
             </h1>
-            <p className="text-sm text-muted-foreground mb-6">
-              Welcome back. Enter your details below.
+            <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
+              Sign in with your WhatsApp number. One tap — no password needed.
             </p>
 
-            {/* Login method toggle: Email / Phone */}
-            <div
-              className="flex rounded-xl border border-border/70 bg-muted/40 p-1 mb-6"
-              data-testid="toggle-login-method"
-              role="tablist"
-            >
-              {(["email", "phone"] as LoginMethod[]).map((m) => (
-                <button
-                  key={m}
-                  type="button"
-                  role="tab"
-                  aria-selected={loginMethod === m}
-                  onClick={() => { setLoginMethod(m); setError(null); }}
-                  className={cn(
-                    "flex-1 flex items-center justify-center gap-2 h-9 rounded-lg text-sm font-medium transition-all",
-                    loginMethod === m
-                      ? "bg-background shadow-xs text-foreground"
-                      : "text-muted-foreground hover:text-foreground"
-                  )}
-                  data-testid={`tab-${m}`}
-                >
-                  {m === "email" ? <Mail className="h-4 w-4" /> : <Phone className="h-4 w-4" />}
-                  {m === "email" ? "Email" : "Phone number"}
-                </button>
-              ))}
-            </div>
-
-            <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-              {/* Email or phone input */}
-              {loginMethod === "email" ? (
-                <div>
-                  <label className="text-xs font-medium text-muted-foreground mb-1.5 block" htmlFor="login-email">
-                    Email address
-                  </label>
-                  <Input
-                    id="login-email"
-                    autoFocus
-                    type="email"
-                    placeholder="you@example.com"
-                    value={email}
-                    onChange={(e) => { setEmail(e.target.value); setError(null); }}
-                    className="h-11 text-sm rounded-xl"
-                    data-testid="input-login-email"
-                  />
-                </div>
-              ) : (
-                <div>
-                  <label className="text-xs font-medium text-muted-foreground mb-1.5 block" htmlFor="login-phone">
-                    Mobile number
-                  </label>
-                  <Input
-                    id="login-phone"
-                    autoFocus
-                    type="tel"
-                    placeholder="+62 812 3456 7890"
-                    value={phone}
-                    onChange={(e) => { setPhone(e.target.value); setError(null); }}
-                    className="h-11 text-sm rounded-xl"
-                    data-testid="input-login-phone"
-                  />
-                </div>
-              )}
-
-              {/* Auth method toggle (email only) */}
-              {loginMethod === "email" && (
-                <div
-                  className="flex rounded-xl border border-border/70 bg-muted/40 p-1"
-                  data-testid="toggle-auth-method"
-                  role="tablist"
-                >
-                  {(["magic", "password"] as AuthMethod[]).map((m) => (
-                    <button
-                      key={m}
-                      type="button"
-                      role="tab"
-                      aria-selected={authMethod === m}
-                      onClick={() => { setAuthMethod(m); setError(null); }}
-                      className={cn(
-                        "flex-1 flex items-center justify-center gap-1.5 h-8 rounded-lg text-xs font-medium transition-all",
-                        authMethod === m
-                          ? "bg-background shadow-xs text-foreground"
-                          : "text-muted-foreground hover:text-foreground"
-                      )}
-                      data-testid={`tab-auth-${m}`}
-                    >
-                      {m === "magic" ? <Zap className="h-3.5 w-3.5" /> : <Lock className="h-3.5 w-3.5" />}
-                      {m === "magic" ? "Magic link" : "Password"}
-                    </button>
-                  ))}
-                </div>
-              )}
-
-              {/* Password input */}
-              {loginMethod === "email" && authMethod === "password" && (
-                <div>
-                  <div className="flex items-center justify-between mb-1.5">
-                    <label className="text-xs font-medium text-muted-foreground" htmlFor="login-password">
-                      Password
-                    </label>
-                    <button
-                      type="button"
-                      onClick={() => { setView("forgot"); setForgotEmail(email); setError(null); }}
-                      className="text-xs text-primary hover:opacity-80 transition-opacity"
-                      data-testid="btn-forgot-password"
-                    >
-                      Forgot password?
-                    </button>
-                  </div>
-                  <div className="relative">
-                    <Input
-                      id="login-password"
-                      type={showPassword ? "text" : "password"}
-                      placeholder="Your password"
-                      value={password}
-                      onChange={(e) => { setPassword(e.target.value); setError(null); }}
-                      className="h-11 text-sm rounded-xl pr-10"
-                      data-testid="input-login-password"
-                    />
-                    <button
-                      type="button"
-                      onClick={() => setShowPassword((v) => !v)}
-                      className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
-                      data-testid="btn-toggle-password"
-                    >
-                      {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
-                    </button>
-                  </div>
-                </div>
-              )}
-
-              {/* Helper text for magic / phone */}
-              {(authMethod === "magic" && loginMethod === "email") && (
-                <p className="text-xs text-muted-foreground leading-relaxed -mt-1" data-testid="text-magic-helper">
-                  We will send a one-click sign-in link to your email. No password needed.
-                </p>
-              )}
-              {loginMethod === "phone" && (
-                <p className="text-xs text-muted-foreground leading-relaxed -mt-1" data-testid="text-phone-helper">
-                  We will send a one-time code to your phone number.
-                </p>
-              )}
-
+            {/* WhatsApp login — primary */}
+            <form onSubmit={handleWhatsApp} className="flex flex-col gap-3" data-testid="form-whatsapp">
+              <label className="text-xs font-medium text-muted-foreground" htmlFor="login-phone">
+                Your WhatsApp number
+              </label>
+              <Input
+                id="login-phone"
+                type="tel"
+                placeholder="+62 812 3456 7890"
+                value={phone}
+                onChange={(e) => { setPhone(e.target.value); setError(null); }}
+                className="h-12 text-base rounded-xl"
+                data-testid="input-login-phone"
+              />
               {error && (
                 <p className="text-sm text-red-500 font-medium" role="alert" data-testid="error-login">
                   {error}
                 </p>
               )}
-
               <Button
                 type="submit"
                 size="lg"
-                className="w-full h-12 rounded-xl font-semibold mt-1"
-                data-testid="btn-submit-login"
+                className="w-full h-12 rounded-xl font-semibold bg-[#25D366] hover:bg-[#22c55e] text-white mt-1"
+                data-testid="btn-whatsapp-login"
               >
-                {loginMethod === "phone"
-                  ? "Send code"
-                  : authMethod === "magic"
-                  ? "Send sign-in link"
-                  : "Sign in"}
+                <MessageCircle className="h-4 w-4 mr-2" />
+                Continue with WhatsApp
               </Button>
             </form>
 
-            <Separator className="my-6 opacity-50" />
+            {/* Divider */}
+            <div className="flex items-center gap-3 my-5">
+              <div className="flex-1 h-px bg-border/60" />
+              <span className="text-xs text-muted-foreground">or</span>
+              <div className="flex-1 h-px bg-border/60" />
+            </div>
 
-            {/* Sign up CTA */}
-            <div className="text-center" data-testid="section-signup-cta">
-              <p className="text-sm text-muted-foreground mb-3">
-                New to NordicAsia Network?
-              </p>
+            {/* Email fallback */}
+            {!showEmailFallback ? (
+              <button
+                type="button"
+                onClick={() => setShowEmailFallback(true)}
+                className="w-full flex items-center justify-center gap-2 h-11 rounded-xl border border-border/70 text-sm text-muted-foreground hover:text-foreground hover:border-primary/30 transition-all"
+                data-testid="btn-show-email"
+              >
+                <Mail className="h-4 w-4" />
+                Sign in with email instead
+              </button>
+            ) : (
+              <form onSubmit={handleEmail} className="flex flex-col gap-3" data-testid="form-email">
+                <label className="text-xs font-medium text-muted-foreground" htmlFor="login-email">
+                  Email address
+                </label>
+                <Input
+                  id="login-email"
+                  autoFocus
+                  type="email"
+                  placeholder="you@example.com"
+                  value={email}
+                  onChange={(e) => { setEmail(e.target.value); setError(null); }}
+                  className="h-12 text-sm rounded-xl"
+                  data-testid="input-login-email"
+                />
+                {error && (
+                  <p className="text-sm text-red-500 font-medium" role="alert" data-testid="error-email">
+                    {error}
+                  </p>
+                )}
+                <Button
+                  type="submit"
+                  variant="outline"
+                  size="lg"
+                  className="w-full h-12 rounded-xl font-semibold"
+                  data-testid="btn-email-login"
+                >
+                  Send sign-in link
+                </Button>
+                <p className="text-xs text-muted-foreground leading-relaxed -mt-1">
+                  We will email you a one-click sign-in link. No password needed.
+                </p>
+              </form>
+            )}
+
+            {/* Divider */}
+            <div className="border-t border-border/50 mt-6 pt-6">
+              <p className="text-sm text-muted-foreground mb-3 text-center">New to NordicAsia Network?</p>
               <Button
                 asChild
-                variant="outline"
                 size="lg"
+                variant="outline"
                 className="w-full h-12 rounded-xl font-semibold border-primary/30 text-primary hover:bg-primary/5"
                 data-testid="btn-go-signup"
               >
-                <Link href="/sign-up">Join the community</Link>
+                <Link href="/sign-up" className="flex items-center gap-2">
+                  Join the community
+                  <ChevronRight className="h-4 w-4" />
+                </Link>
               </Button>
-              <p className="text-xs text-muted-foreground mt-3 leading-relaxed">
-                Free to apply. We review every member to keep the network high-quality.
+              <p className="text-xs text-muted-foreground mt-3 text-center leading-relaxed">
+                Free to apply. Your first event is always free.
               </p>
             </div>
           </div>
@@ -461,11 +327,9 @@ export default function Login() {
 }
 
 /* ── Shared page shell ── */
-
 function PageShell({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-screen bg-background flex flex-col">
-      {/* Top bar */}
       <header className="w-full px-4 md:px-8 py-4 flex items-center justify-between border-b border-border/40">
         <Link href="/" className="flex items-center gap-2" data-testid="link-logo">
           <Compass className="h-5 w-5 text-primary" />
@@ -480,48 +344,9 @@ function PageShell({ children }: { children: React.ReactNode }) {
           Back to home
         </Link>
       </header>
-
-      {/* Content */}
       <div className="flex-1 flex items-start lg:items-center px-4 md:px-8 py-10 md:py-14">
         {children}
       </div>
     </div>
-  );
-}
-
-/* ── Confirmation screen ── */
-
-function ConfirmationScreen({
-  heading,
-  desc,
-  onBack,
-  testId,
-}: {
-  heading: string;
-  desc: string;
-  onBack: () => void;
-  testId: string;
-}) {
-  return (
-    <PageShell>
-      <div className="w-full max-w-sm mx-auto text-center" data-testid={testId}>
-        <div className="mx-auto mb-5 h-14 w-14 rounded-full bg-primary/10 flex items-center justify-center">
-          <Check className="h-7 w-7 text-primary" />
-        </div>
-        <h2 className="text-2xl font-bold text-foreground mb-2" data-testid="heading-confirmation">
-          {heading}
-        </h2>
-        <p className="text-sm text-muted-foreground leading-relaxed mb-8" data-testid="text-confirmation">
-          {desc}
-        </p>
-        <button
-          onClick={onBack}
-          className="text-sm text-primary hover:opacity-80 transition-opacity underline underline-offset-2"
-          data-testid="btn-back-from-confirmation"
-        >
-          Use a different method
-        </button>
-      </div>
-    </PageShell>
   );
 }
