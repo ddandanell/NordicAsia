@@ -58,8 +58,8 @@ export function WhyJoin() {
           >
             <div className="rounded-2xl overflow-hidden shadow-xl">
               <img
-                src="/images/community.jpg"
-                alt="Nordic professionals connecting at a community event"
+                src="/images/whyjoin.jpg"
+                alt="NordicAsia networking event in Ubud, Bali"
                 className="w-full h-[320px] md:h-[420px] object-cover"
                 loading="lazy"
                 data-testid="img-community"
