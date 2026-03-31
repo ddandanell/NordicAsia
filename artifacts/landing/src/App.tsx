@@ -11,6 +11,7 @@ import HowItWorks from "@/pages/HowItWorks";
 import Welcome from "@/pages/Welcome";
 import { UserProvider } from "@/context/UserContext";
 import { ScrollToTop } from "@/components/ScrollToTop";
+import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
 
 const queryClient = new QueryClient();
 
@@ -38,6 +39,7 @@ function App() {
         <UserProvider>
           <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
             <Router />
+            <FloatingWhatsApp />
           </WouterRouter>
           <Toaster />
         </UserProvider>
