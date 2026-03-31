@@ -208,8 +208,18 @@ export default function Login() {
 
         {/* ── Right column: Login form ── */}
         <div className="order-1 lg:order-2 w-full" data-testid="panel-login-form">
-          <div className="bg-card border border-border/60 rounded-2xl p-6 md:p-8 shadow-sm">
+          <div className="bg-card border border-border/60 rounded-2xl overflow-hidden shadow-sm">
 
+            {/* Photo banner */}
+            <div className="w-full h-44 md:h-52 overflow-hidden">
+              <img
+                src="/images/login-photo.png"
+                alt="NordicAsia Association — FORMAND and SUPPORT, Bali"
+                className="w-full h-full object-cover object-top"
+              />
+            </div>
+
+            <div className="p-6 md:p-8">
             <h1 className="text-xl font-bold text-foreground mb-1" data-testid="heading-login">
               Already a member?
             </h1>
@@ -318,6 +328,7 @@ export default function Login() {
               <p className="text-xs text-muted-foreground mt-3 text-center leading-relaxed">
                 Free to apply. Your first event is always free.
               </p>
+            </div>
             </div>
           </div>
         </div>
