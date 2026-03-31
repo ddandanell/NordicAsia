@@ -3,6 +3,7 @@ import { Footer } from "@/components/Footer";
 import { Hero } from "@/components/sections/Hero";
 import { AreaCoverage } from "@/components/sections/AreaCoverage";
 import { WhatItIs } from "@/components/sections/WhatItIs";
+import { CommunityTypes } from "@/components/sections/CommunityTypes";
 import { VideoShowcase } from "@/components/sections/VideoShowcase";
 import { MemberStories } from "@/components/sections/MemberStories";
 import { WhyJoin } from "@/components/sections/WhyJoin";
@@ -18,6 +19,7 @@ export default function LandingPage() {
         <Hero />
         <AreaCoverage />
         <WhatItIs />
+        <CommunityTypes />
         <VideoShowcase />
         <MemberStories />
         <WhyJoin />

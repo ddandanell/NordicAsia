@@ -25,7 +25,7 @@ React + Vite frontend-only landing site for NordicAsia Network. No backend calls
 **Funnel flow**: `/` → `/what-you-get` → `/sign-up` → `/welcome`
 
 **Routes:**
-- **`/`** — Main landing page: Hero (full-bleed bg image + video + stats bar), Area Coverage (5 Indonesian cities), What You Find Inside (6 feature cards), Video Showcase (featured intro video + 5 benefit highlights), Member Stories (3 testimonial cards + why companies/why individuals panels + CTA), Why This Community Exists (image + 4 points), Company Trust (8 Nordic company cards), Pricing, Final CTA (bg image overlay)
+- **`/`** — Main landing page: Hero (updated headline, subheadline, "first event is free" trust line), Area Coverage (6 cities with Explore buttons), What You Find Inside (6 feature cards), How the Community Works (Meetups/Groups/Events, 3 cards), Video Showcase, Member Stories, Why This Community Exists, Company Trust (5 Nordic countries + 10 companies each), Pricing (3-tier IDR only with "first event free" banner), Final CTA
 - **`/what-you-get`** — Tier comparison (Visitor/Member/Company), benefit cards, FAQ accordion, sticky "Continue" CTA
 - **`/sign-up`** — 11–12 step onboarding flow (one question per screen), personal or company path, saves to UserContext on completion
 - **`/login`** — Login page: Email/phone toggle, magic link/password sub-toggle, forgot password, access tier explainer

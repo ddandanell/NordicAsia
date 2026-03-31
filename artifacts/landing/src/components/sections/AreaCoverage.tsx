@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { MapPin, Users } from "lucide-react";
+import { MapPin, Users, ArrowRight } from "lucide-react";
 
 const AREAS = [
   {
@@ -117,9 +117,18 @@ export function AreaCoverage() {
                   </span>
                 </div>
 
-                <p className="text-xs text-white/70 leading-relaxed line-clamp-3 group-hover:line-clamp-none transition-all">
+                <p className="text-xs text-white/70 leading-relaxed line-clamp-2 mb-3">
                   {area.desc}
                 </p>
+
+                <a
+                  href="/what-you-get"
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-white/80 hover:text-white transition-colors group/link"
+                  data-testid={`btn-explore-${area.name.toLowerCase()}`}
+                >
+                  Explore {area.name}
+                  <ArrowRight className="h-3 w-3 group-hover/link:translate-x-0.5 transition-transform" />
+                </a>
               </div>
             </motion.div>
           ))}

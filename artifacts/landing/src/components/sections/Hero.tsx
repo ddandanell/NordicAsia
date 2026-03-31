@@ -47,8 +47,8 @@ export function Hero() {
           transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
           data-testid="heading-hero"
         >
-          Your Nordic community
-          <br className="hidden md:block" /> in Indonesia.
+          The Nordic Community and
+          <br className="hidden md:block" /> Business Network in Indonesia.
         </motion.h1>
 
         <motion.p
@@ -58,26 +58,15 @@ export function Hero() {
           transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
           data-testid="text-hero-desc"
         >
-          A private network for professionals from Denmark, Sweden, Norway, Finland,
-          and Iceland. Meet real people, build business, and grow your life in
-          Southeast Asia.
-        </motion.p>
-
-        <motion.p
-          className="text-sm text-white/60 max-w-xl mb-10 leading-relaxed"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.35 }}
-          data-testid="text-hero-sub"
-        >
-          Both business and real human connection — in one place.
+          Meet people, join groups, explore events, and build better connections
+          across Bali, Jakarta, and beyond.
         </motion.p>
 
         <motion.div
-          className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto"
+          className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto mb-5"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
+          transition={{ duration: 0.6, delay: 0.35, ease: "easeOut" }}
         >
           <Button
             size="lg"
@@ -94,9 +83,19 @@ export function Hero() {
             asChild
             data-testid="btn-hero-how"
           >
-            <a href="/how-it-works">Explore How It Works</a>
+            <a href="/how-it-works">How It Works</a>
           </Button>
         </motion.div>
+
+        <motion.p
+          className="text-sm text-white/60 max-w-md leading-relaxed"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+          data-testid="text-hero-trust"
+        >
+          First event is free. Apply, join, meet people, then decide if membership is right for you.
+        </motion.p>
       </div>
 
       {/* Stats bar */}

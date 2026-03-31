@@ -20,6 +20,7 @@ import {
   Star,
   Building2,
   UserCircle,
+  Gift,
 } from "lucide-react";
 
 const freeFeatures = [
@@ -136,6 +137,23 @@ export default function WhatYouGet() {
           </div>
         </section>
 
+        {/* First event is free */}
+        <section className="py-6 px-4 md:px-6" data-testid="section-first-event-free">
+          <div className="container mx-auto max-w-2xl">
+            <div className="flex items-start gap-4 bg-primary/5 border border-primary/20 rounded-2xl p-5">
+              <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
+                <Gift className="h-5 w-5 text-primary" />
+              </div>
+              <div>
+                <p className="text-sm font-bold text-foreground mb-1">Your first event is always free.</p>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Apply first. We invite you to your first event. Come meet people, see the network in real life, and then decide if you want to become a paid member. No commitment until you know it is right for you.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Access Tier Cards */}
         <section
           className="py-10 md:py-14"
@@ -156,7 +174,7 @@ export default function WhatYouGet() {
                     <UserCircle className="h-4 w-4 text-muted-foreground" />
                   </div>
                   <span className="font-semibold text-foreground text-sm">Visitor</span>
-                  <Badge variant="secondary" className="ml-auto text-xs rounded-full px-2 py-0.5">Free</Badge>
+                  <Badge variant="secondary" className="ml-auto text-xs rounded-full px-2 py-0.5">IDR 0</Badge>
                 </div>
                 <p className="text-xs text-muted-foreground leading-relaxed">
                   Browse the public community and learn what we do before committing.
@@ -186,7 +204,7 @@ export default function WhatYouGet() {
                     <Star className="h-4 w-4 text-primary" />
                   </div>
                   <span className="font-semibold text-foreground text-sm">Member</span>
-                  <span className="ml-auto text-xs font-semibold text-primary">Paid</span>
+                  <span className="ml-auto text-xs font-semibold text-primary">IDR 1.800.000/thn</span>
                 </div>
                 <p className="text-xs text-muted-foreground leading-relaxed">
                   Full access to the community, events, WhatsApp, and the member directory.
@@ -212,7 +230,7 @@ export default function WhatYouGet() {
                     <Building2 className="h-4 w-4 text-muted-foreground" />
                   </div>
                   <span className="font-semibold text-foreground text-sm">Company</span>
-                  <span className="ml-auto text-xs font-semibold text-muted-foreground">Paid</span>
+                  <span className="ml-auto text-xs font-semibold text-muted-foreground">IDR 5.400.000/thn</span>
                 </div>
                 <p className="text-xs text-muted-foreground leading-relaxed">
                   Get your business visible to the right people across both regions.
