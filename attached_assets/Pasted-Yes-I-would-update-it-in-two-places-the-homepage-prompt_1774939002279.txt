@@ -1,0 +1,295 @@
+Yes. I would update it in two places: the homepage prompt and the membership/application prompt.
+
+For visual direction, the safest match is a real networking-style header image or muted loop video showing small groups of professionals in Bali or Jakarta, ideally in a rooftop, hotel lounge, café, or event setting. That fits the existing Nordic chamber pattern in Indonesia, which is strongly event and networking driven. NordCham’s public site also leans heavily on event/community imagery, while SwedCham’s membership positioning is clearly tied to networking and business events.  ￼
+
+Also, your new membership logic is strong: the first event is free, then the person decides whether to convert to paid membership. That lowers friction and gives people a real reason to try the network before paying. Since SwedCham already positions membership around access to events and discounted or free business events, your model is directionally familiar but more conversion-friendly for new members.  ￼
+
+Use only Indonesian rupiah throughout the site. Do not show any other currency.
+
+Here are the two updated prompts.
+
+Prompt 1: Update the homepage with header media, area coverage, and clear community structure
+
+Update the homepage of the Nordic community and business network website. The website must be mobile first, very easy to understand, and visually strong from the first second. The goal is that a new visitor immediately understands what this is, where it is active, what they can do inside, and why it is worth joining.
+
+The design must feel premium, modern, social, and trustworthy. Use a clean Scandinavian style with strong typography, good spacing, warm but professional imagery, and simple icon-supported sections. It must not feel stiff like an old chamber website. It must feel alive and useful.
+
+Use only Indonesian rupiah everywhere on the site. Do not show USD, EUR, or any other currency.
+	1.	Header / hero section
+Build a strong mobile-first hero section with either:
+
+	•	a high-quality photo header, or
+	•	a muted looping background video
+
+The visual style should show the feeling of a Nordic business and community network in Indonesia:
+small groups of professionals,
+warm networking atmosphere,
+Bali or Jakarta setting,
+high-quality but natural,
+real conversations,
+modern venue,
+business and social energy mixed together.
+
+If using video, it should feel like a short brand introduction reel with scenes of:
+people arriving,
+small networking moments,
+handshakes,
+conversations,
+dinner or meetup environment,
+one or two event shots,
+and calm premium transitions.
+
+Overlay content:
+Headline:
+“The Nordic Community and Business Network in Indonesia”
+
+Subheadline:
+“Meet people, join groups, explore events, and build better connections across Bali, Jakarta, and beyond.”
+
+Buttons:
+“Join the Community”
+“How It Works”
+
+Add a small trust line under the buttons:
+“First event is free. Apply, join, meet people, then decide if membership is right for you.”
+	2.	Area coverage section
+Add a homepage section showing where the network is active.
+
+This section must show area cards such as:
+Bali
+Jakarta
+and room for more areas later
+
+Each area card must include:
+	•	a strong image
+	•	area name with bold visual treatment
+	•	short description of the type of people and activity there
+	•	number of signed-up members in that area
+	•	button such as “Explore Bali” or “Explore Jakarta”
+
+Example copy:
+Bali
+Founders, remote workers, families, creatives, hospitality people, and long-stay Nordic members.
+
+Jakarta
+Executives, business leaders, corporate members, embassy-linked professionals, and serious business networking.
+
+Add a short intro above the cards:
+“Explore the areas where our Nordic network is active in Indonesia. See where members are based, where events happen, and where the community is growing.”
+	3.	Explain the three layers clearly
+Add a simple icon-based section called:
+“How the Community Works”
+
+This section must explain the difference between:
+Meetups
+Groups
+Events
+
+Definitions:
+Meetups:
+Casual social meetups and smaller gatherings where members meet in real life.
+Examples: coffee, lunch, dinner, beer, hangout, local meetup.
+
+Groups:
+Small interest-based circles created by members who want to do something together.
+Examples: business breakfast group, golf group, startup talks, family hangout, Denmark-Sweden meetup.
+A group is simply a group of people asking if others want to join something.
+
+Events:
+The more formal business side.
+These are organized business-focused sessions, network events, talks, company events, or premium member activities.
+
+Make this section extremely easy to understand with icons and very short text.
+	4.	What you find inside
+Add a section called:
+“What You Find Inside”
+
+Explain clearly that members find:
+	•	practical knowledge
+	•	useful contacts
+	•	a large Nordic network of like-minded people
+	•	access to meetups across Indonesia
+	•	access to groups built around interests and activities
+	•	access to business events and premium networking opportunities
+	•	people from Denmark, Sweden, Norway, Finland, and Iceland
+	•	companies, founders, professionals, and members who already know the market
+
+Make the wording very simple and direct.
+	5.	Company credibility section
+Add a section that shows the quality and seriousness of the network.
+
+This section should explain that the network includes or is relevant to people connected to major Nordic companies and business communities active in Indonesia.
+
+Use editable placeholder logo slots for six large Nordic companies.
+Do not make unverifiable claims.
+Make the section feel like:
+“This is a serious network with real business relevance.”
+
+Support text:
+“Built for professionals, founders, private members, and people connected to some of the strongest Nordic business networks in Indonesia.”
+	6.	Why people join
+Add a simple section explaining:
+
+	•	people join to meet others faster
+	•	people join to get help and share knowledge
+	•	people join to build both social and business connections
+	•	people join because life and work in Indonesia become easier with the right network around you
+
+	7.	Final CTA
+End with:
+“Join the community, explore your area, attend your first event for free, and decide from real experience.”
+
+Buttons:
+“Apply for Membership”
+“Start with Free Access”
+
+Design requirements:
+	•	mobile first
+	•	premium and highly readable
+	•	strong image/video header
+	•	reusable cards
+	•	icon-supported sections
+	•	simple language
+	•	production-ready frontend
+	•	no backend yet
+
+Prompt 2: Update the membership flow with country choice, first free event, and IDR pricing only
+
+Build a mobile-first membership and application flow for the Nordic community platform. This flow must be extremely clear and simple. It should explain the membership types, how access works, and how the first free event works before a person decides to become a paid member.
+
+Use only Indonesian rupiah everywhere in the flow.
+
+Main logic:
+A user chooses their Nordic country connection first.
+Then they apply for membership.
+Then they can see pricing and membership details.
+Then they are invited automatically to their first event for free.
+After attending that first event and meeting people, they decide whether they want to become a paid member.
+
+This flow is very important because it lowers friction and makes the community feel open, human, and easy to try.
+	1.	Country selection screen
+The first screen should ask:
+“Which Nordic country are you joining through?”
+
+Options:
+Denmark
+Sweden
+Norway
+Finland
+Iceland
+
+Use large mobile-friendly country cards with flags or icons.
+
+Helper text:
+“Choose the country you feel most connected to. This helps us place you in the right network and groups.”
+	2.	Membership overview screen
+After country selection, show the membership options in very simple language.
+
+Membership types:
+Free Community Access
+Paid Membership
+Company Membership
+
+Explain clearly:
+
+Free Community Access:
+	•	create a profile
+	•	explore the community
+	•	see what is happening
+	•	join groups and selected meetups
+	•	ask questions and connect with people
+	•	limited access to business events and premium features
+
+Paid Membership:
+	•	deeper access to the network
+	•	access to business events
+	•	access to premium groups
+	•	stronger visibility
+	•	more networking opportunities
+
+Company Membership:
+	•	for businesses that want company presence
+	•	add team members
+	•	access company-related benefits
+	•	stronger visibility and reporting
+
+	3.	First event is free section
+Build a highlighted section that explains the onboarding model:
+
+“Your first event is always free.”
+
+Support text:
+“Apply first. We invite you to your first event. Come meet people, see the network in real life, and then decide if you want to become a paid member.”
+
+This section should feel like a major trust-builder.
+	4.	Pricing screen
+Show all pricing in IDR only.
+
+Use placeholder pricing cards that can be edited later, for example:
+Free Access: IDR 0
+Paid Membership: IDR X,XXX,XXX per year
+Company Membership: IDR X,XXX,XXX per year
+Business Event Ticket: IDR XXXXXX if relevant
+
+Important:
+Do not show mixed currencies.
+Only IDR.
+	5.	Explain community types inside the product
+Add a clear section in the flow called:
+“What Can You Join Inside?”
+
+This must explain:
+Meetups:
+casual real-life gatherings
+
+Groups:
+member-created groups for shared interests or activities
+
+Events:
+structured business-oriented sessions and premium activities
+
+Use icons and short one-line descriptions.
+	6.	Application form
+Build a clean mobile-first application form with these fields:
+
+	•	full name
+	•	email
+	•	mobile number
+	•	nationality
+	•	current location in Indonesia
+	•	joining as private person or company
+	•	company name if relevant
+	•	what you want from the network
+	•	WhatsApp consent
+	•	preferred area: Bali, Jakarta, other
+	•	preferred country community: Denmark, Sweden, Norway, Finland, Iceland
+
+	7.	Application outcome screen
+After form submission, show:
+
+	•	application received
+	•	next step is first event invitation
+	•	your first event is free
+	•	after attending, you can decide if you want to continue as a paid member
+	•	while waiting, you can explore selected community areas
+
+CTA buttons:
+“Explore the Community”
+“See Upcoming Meetups”
+“See Membership Details”
+
+Design requirements:
+	•	mobile first
+	•	very simple step-by-step UX
+	•	strong visual hierarchy
+	•	IDR only
+	•	clear differentiation between meetups, groups, and events
+	•	country-first onboarding
+	•	first-event-free logic built into the experience
+	•	no payment integration yet
+	•	production-ready frontend components only
+
+My recommendation for the header asset is this:
+use a warm professional networking photo for launch, then later replace it with a short branded video reel once you have your own footage. A real photo is faster, cleaner, and less risky for version one. The visual style should resemble a premium Bali or Jakarta networking setting rather than a generic corporate office. That matches the public event-driven Nordic chamber positioning already visible in Indonesia.  ￼
+
+If you want, I can turn these into a React/Tailwind build brief next.

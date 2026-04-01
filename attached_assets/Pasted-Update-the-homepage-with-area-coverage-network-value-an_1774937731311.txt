@@ -1,0 +1,96 @@
+Update the homepage with area coverage, network value, and stronger front-page storytelling
+
+Update the homepage of the Nordic community and business network website. The homepage must feel modern, premium, clear, and mobile first. The goal is that a new visitor instantly understands what this community is, where it is active, who it is for, and why it is valuable.
+
+The design should feel clean, Scandinavian, trustworthy, and social, but still business-relevant. Use strong visual hierarchy, large readable headings, bold cards, clear call-to-action buttons, beautiful photography, and a simple structure that is easy to understand even for someone young or completely new to the concept.
+
+Main homepage goals:
+	1.	Show clearly what the community is
+	2.	Show where the network is active in Indonesia
+	3.	Show why people and companies join
+	4.	Show the value of the network, contacts, events, and member access
+	5.	Make the platform feel alive, useful, and high quality
+
+Please update the homepage with these sections:
+	1.	Hero section
+Create a strong hero section with:
+
+	•	A short and powerful headline
+	•	A very simple explanation of what this network is
+	•	A supporting sentence that explains this is a Nordic community and business network in Indonesia for people from Denmark, Sweden, Norway, Finland, and Iceland
+	•	Two clear buttons:
+	•	Join the Community
+	•	Explore How It Works
+
+The hero must make it obvious that this is the place for people who want both business and real human connection.
+	2.	Area coverage section
+Add a strong homepage section showing the areas where the community is active in Indonesia.
+
+This section must:
+	•	Show area cards such as Bali, Jakarta, and other key Indonesian cities or areas where Europeans and Nordic professionals are active
+	•	Include a nice image for each area
+	•	Show the name of the area with a bold visual effect
+	•	Show the number of signed-up members or registered users in each area
+	•	Include a short descriptive text for each area explaining why the area matters and what kind of people are there
+	•	Make the section visually attractive and easy to scan on mobile
+
+Examples of area card content:
+	•	Bali: Creative founders, remote workers, families, hospitality people, and long-stay professionals
+	•	Jakarta: Corporate professionals, executives, decision-makers, embassy-related people, and business network activity
+
+Also add a short intro text above this section explaining:
+“These are the areas where our Nordic network is active in Indonesia. Explore where people are based, where events happen, and where the community is growing.”
+	3.	What you find inside the community
+Add a section called:
+“What You Find Inside”
+
+This section should clearly explain that inside the community people get:
+	•	Knowledge and practical help
+	•	Useful contacts
+	•	A large network of like-minded people from Denmark, Sweden, Norway, Finland, and Iceland
+	•	Access to events across Indonesia
+	•	Access to companies, professionals, founders, and people who have already built things and know the market
+	•	A place to ask questions, get recommendations, and connect faster
+
+This must be written very clearly and in plain English.
+	4.	Why this community exists
+Add a section explaining the bigger idea:
+This is the place for people who want to do business, build relationships, and also meet real people. The goal is to create a stronger Nordic community in Indonesia where people help each other, share knowledge, build business opportunities, and create a better network together.
+
+This section should explain:
+	•	We are stronger as a group
+	•	A good network helps both companies and individuals
+	•	The community makes it easier to settle in, connect, and build trust
+	•	The larger and stronger the network becomes, the more useful it becomes for everyone
+
+	5.	Big company trust section
+Add a section that shows the quality of the network by referencing major companies already connected to the ecosystem.
+
+This section should:
+	•	Mention that many of the biggest companies from each Nordic country are part of or connected to this ecosystem
+	•	Show six example company logos or placeholder company names from major Nordic business players
+	•	Make it clear this is only to show the level and seriousness of the network
+	•	Include supporting text like:
+“Trusted by professionals, founders, and people connected to some of the most recognized Nordic companies active in Indonesia.”
+
+Do not make false claims. Use placeholder logos or editable logo slots if needed.
+	6.	Final call to action
+End with a strong section that invites people to join the network.
+
+The message should be:
+If you want business opportunities, better contacts, useful events, and a stronger Nordic community around you in Indonesia, this is where you start.
+
+Design requirements:
+	•	Mobile first
+	•	Premium but simple
+	•	Strong spacing and visual hierarchy
+	•	Easy to understand
+	•	Reusable card components
+	•	Section-based structure
+	•	Realistic placeholder content
+	•	Clean Scandinavian styling
+	•	Photos should feel real, warm, professional, and social
+	•	Make it look production-ready
+
+Do not build backend logic yet.
+Only update the frontend and content structure.
